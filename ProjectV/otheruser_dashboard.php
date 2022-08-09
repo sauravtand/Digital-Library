@@ -30,7 +30,7 @@ $userloginid = $_SESSION["userid"] = $_GET['userlogid'];
 <style>
     .innerright,
     label {
-        color: rgb(16, 170, 16);
+        color: #333333;
         font-weight: bold;
     }
 
@@ -61,7 +61,13 @@ $userloginid = $_SESSION["userid"] = $_GET['userlogid'];
     }
 
     .innerright {
-        background-color: rgb(105, 221, 105);
+        background-color: #2222;
+        border-radius: 6px;
+    }
+
+    .imglogo {
+        width: 20%;
+        margin: 20px auto;
     }
 
     .greenbtn {
@@ -70,6 +76,8 @@ $userloginid = $_SESSION["userid"] = $_GET['userlogid'];
         width: 95%;
         height: 40px;
         margin-top: 8px;
+        border: none;
+        border-radius: 6px;
     }
 
     .greenbtn,

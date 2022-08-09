@@ -1,9 +1,9 @@
 <?php
 include("data_class.php");
 
-$deletebookid=$_GET['deletebookid'];
+$deletebookid = $_GET['deletebookid'];
 
 
-$obj=new data();
+$obj = new data();
 $obj->setconnection();
 $obj->deletebook($deletebookid);

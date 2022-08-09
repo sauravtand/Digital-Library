@@ -122,6 +122,26 @@
         border-radius: 6px;
         box-sizing: border-box;
     }
+
+    input[type=password] {
+        width: 70%;
+
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    input[type=email] {
+        width: 70%;
+
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
 </style>
 
 <body>
@@ -232,7 +252,8 @@
                     <form action="addpersonserver_page.php" method="post" enctype="multipart/form-data">
                         <label>Name:</label><input type="text" name="addname" />
                         </br>
-                        <label>Pasword:</label><input type="pasword" name="addpass" />
+                        <label>Pasword:</label><input type="password" name="addpass" />
+
                         </br>
                         <label>Email:</label><input type="email" name="addemail" /></br>
                         <label for="typw">Choose type:</label>
@@ -241,7 +262,7 @@
                             <option value="teacher">teacher</option>
                         </select>
 
-                        <input type="submit" value="SUBMIT" />
+                        <input type="submit" value="SUBMIT" class="greenbtn" />
                     </form>
                 </div>
             </div>

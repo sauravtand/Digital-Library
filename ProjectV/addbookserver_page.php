@@ -17,8 +17,6 @@ $bookquantity = $_POST['bookquantity'];
 if (move_uploaded_file($_FILES["bookphoto"]["tmp_name"], "uploads/" . $_FILES["bookphoto"]["name"])) {
 
   $bookpic = $_FILES["bookphoto"]["name"];
-  // var_dump($bookpic);
-  // exit;
 
 
   $obj = new data();

@@ -19,7 +19,8 @@
 <style>
     .innerright,
     label {
-        color: rgb(16, 170, 16);
+
+        color: #333333;
         font-weight: bold;
     }
 
@@ -44,6 +45,29 @@
         width: 25%;
     }
 
+    .imglogo {
+        width: 20%;
+        margin: 20px auto;
+    }
+
+    .innerdiv {
+        text-align: center;
+        /* width: 500px; */
+        margin: 100px;
+    }
+
+    input {
+        margin-left: 20px;
+
+    }
+
+
+
+    .leftinnerdiv {
+        float: left;
+        width: 25%;
+    }
+
     .rightinnerdiv {
         float: right;
         width: 75%;
@@ -55,10 +79,17 @@
 
     .greenbtn {
         background-color: rgb(16, 170, 16);
-        color: white;
-        width: 95%;
-        height: 40px;
-        margin-top: 8px;
+        background-color: #2222;
+    }
+
+    .greenbtn {
+        background-color: #ff0f39;
+
+
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+
     }
 
     .greenbtn,
@@ -81,6 +112,55 @@
     td,
     a {
         color: black;
+    }
+
+    form {
+        padding: 10px;
+
+    }
+
+    .innerright {
+        border-radius: 6px;
+    }
+
+    input[type=text] {
+        width: 70%;
+
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    input[type=number] {
+        width: 70%;
+
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    input[type=password] {
+        width: 70%;
+
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    input[type=email] {
+        width: 70%;
+
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
     }
 </style>
 
@@ -164,24 +244,36 @@
                                                                     } ?>">
                     <Button class="greenbtn">ADD NEW BOOK</Button>
                     <form action="addbookserver_page.php" method="post" enctype="multipart/form-data">
-                        <label>Book Name:</label><input type="text" name="bookname" />
-                        </br>
-                        <label>Detail:</label><input type="text" name="bookdetail" /></br>
-                        <label>Author:</label><input type="text" name="bookaudor" /></br>
-                        <label>Publication</label><input type="text" name="bookpub" /></br>
-                        <div>Branch:<input type="radio" name="branch" value="other" />other<input type="radio" name="branch" value="C" />C
-                            <div style="margin-left:80px"><input type="radio" name="branch" value="C++" />C++
-                                <input type="radio" name="branch" value="BESC" />BESC
-                            </div>
-                        </div>
-                        <label>Price:</label><input type="number" name="bookprice" /></br>
-                        <label>Quantity:</label><input type="number" name="bookquantity" /></br>
-                        <label>Book Photo</label><input type="file" name="bookphoto" /></br>
-                        </br>
+                        <<<<<<< HEAD <label>Book Name:</label><input type="text" name="bookname" />
+                            </br>
+                            <label>Detail:</label><input type="text" name="bookdetail" /></br>
+                            <label>Author:</label><input type="text" name="bookaudor" /></br>
+                            <label>Publication</label><input type="text" name="bookpub" /></br>
+                            <div>Branch:<input type="radio" name="branch" value="other" />other<input type="radio" name="branch" value="C" />C
+                                <div style="margin-left:80px"><input type="radio" name="branch" value="C++" />C++
+                                    <input type="radio" name="branch" value="BESC" />BESC
+                                </div>
+                                =======
+                                <label>Book Name:</label>
+                                <input type="text" name="bookname" />
+                                </br>
+                                <label>Detail:</label><input type="text" name="bookdetail" /></br>
+                                <label>Autor:</label><input type="text" name="bookaudor" /></br>
+                                <label>Publication</label><input type="text" name="bookpub" /></br>
+                                <div>Branch:<input type="radio" name="branch" value="other" />other<input type="radio" name="branch" value="BSIT" />BSIT<div style="margin-left:80px"><input type="radio" name="branch" value="BSCS" />BSCS<input type="radio" name="branch" value="BSSE" />BSSE</div>
+                                    >>>>>>> 980bfc746f74827e67b8a5327914089d2981171c
+                                </div>
+                                <label>Price:</label><input type="number" name="bookprice" /></br>
+                                <label>Quantity:</label><input type="number" name="bookquantity" /></br>
+                                <label>Book Photo</label><input type="file" name="bookphoto" /></br>
+                                </br>
 
-                        <input type="submit" value="SUBMIT" />
-                        </br>
-                        </br>
+                                <<<<<<< HEAD <input type="submit" value="SUBMIT" />
+                                =======
+                                <input type="submit" value="SUBMIT" class="greenbtn" />
+                                >>>>>>> 980bfc746f74827e67b8a5327914089d2981171c
+                                </br>
+                                </br>
 
                     </form>
                 </div>
@@ -194,16 +286,29 @@
                     <form action="addpersonserver_page.php" method="post" enctype="multipart/form-data">
                         <label>Name:</label><input type="text" name="addname" />
                         </br>
-                        <label>Pasword:</label><input type="pasword" name="addpass" />
-                        </br>
-                        <label>Email:</label><input type="email" name="addemail" /></br>
-                        <label for="typw">Choose type:</label>
-                        <select name="type">
-                            <option value="student">student</option>
-                            <option value="teacher">teacher</option>
-                        </select>
+                        <<<<<<< HEAD <label>Pasword:</label><input type="pasword" name="addpass" />
+                            </br>
+                            <label>Email:</label><input type="email" name="addemail" /></br>
+                            <label for="typw">Choose type:</label>
+                            <select name="type">
+                                <option value="student">student</option>
+                                <option value="teacher">teacher</option>
+                            </select>
 
-                        <input type="submit" value="SUBMIT" />
+                            <input type="submit" value="SUBMIT" />
+                            =======
+                            <label>Pasword:</label><input type="password" name="addpass" />
+
+                            </br>
+                            <label>Email:</label><input type="email" name="addemail" /></br>
+                            <label for="typw">Choose type:</label>
+                            <select name="type">
+                                <option value="student">student</option>
+                                <option value="teacher">teacher</option>
+                            </select>
+
+                            <input type="submit" value="SUBMIT" class="greenbtn" />
+                            >>>>>>> 980bfc746f74827e67b8a5327914089d2981171c
                     </form>
                 </div>
             </div>

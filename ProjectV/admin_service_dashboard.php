@@ -24,9 +24,8 @@
     }
 
     .container,
-    .row,
-    .imglogo {
-        margin: auto;
+    .row {
+        margin: 10px auto;
     }
 
     .imglogo {
@@ -37,7 +36,7 @@
     .innerdiv {
         text-align: center;
         /* width: 500px; */
-        margin: 100px;
+        margin: 2% auto;
     }
 
     input {
@@ -62,7 +61,7 @@
     }
 
     .greenbtn {
-        background-color: #ff0f39;
+        background-color: #024ca1;
         color: white;
         width: 95%;
         height: 40px;
@@ -142,6 +141,18 @@
         border-radius: 6px;
         box-sizing: border-box;
     }
+
+    .bookdetails {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+
+    .book-details {
+        text-align: left;
+        margin-bottom: 1rem;
+    }
 </style>
 
 <body>
@@ -171,10 +182,10 @@
             <div class="leftinnerdiv">
                 <Button class="greenbtn"> ADMIN</Button>
                 <Button class="greenbtn" onclick="openpart('addbook')">ADD BOOK</Button>
-                <Button class="greenbtn" onclick="openpart('bookreport')"> BOOK REPORT</Button>
+                <Button class="greenbtn" onclick="openpart('bookreport')"> BOOK RECORD</Button>
                 <Button class="greenbtn" onclick="openpart('bookrequestapprove')"> BOOK REQUESTS</Button>
                 <Button class="greenbtn" onclick="openpart('addperson')"> ADD STUDENT</Button>
-                <Button class="greenbtn" onclick="openpart('studentrecord')"> STUDENT REPORT</Button>
+                <Button class="greenbtn" onclick="openpart('studentrecord')"> STUDENT RECORD</Button>
                 <Button class="greenbtn" onclick="openpart('issuebook')"> ISSUE BOOK</Button>
                 <Button class="greenbtn" onclick="openpart('issuebookreport')"> ISSUE REPORT</Button>
                 <a href="index.php"><Button class="greenbtn"> LOGOUT</Button></a>
@@ -403,17 +414,23 @@ issue book -->
                     }
                     ?>
 
-                    <img width='150px' height='150px' style='border:1px solid #333333; float:left;margin-left:20px' src="uploads/<?php echo $bookimg ?> " />
-                    </br>
-                    <p style="color:black"><u>Book Name:</u> &nbsp&nbsp<?php echo $bookname ?></p>
-                    <p style="color:black"><u>Book Detail:</u> &nbsp&nbsp<?php echo $bookdetail ?></p>
-                    <p style="color:black"><u>Book Authour:</u> &nbsp&nbsp<?php echo $bookauthour ?></p>
-                    <p style="color:black"><u>Book Publisher:</u> &nbsp&nbsp<?php echo $bookpub ?></p>
-                    <p style="color:black"><u>Book Branch:</u> &nbsp&nbsp<?php echo $branch ?></p>
-                    <p style="color:black"><u>Book Price:</u> &nbsp&nbsp<?php echo $bookprice ?></p>
-                    <p style="color:black"><u>Book Available:</u> &nbsp&nbsp<?php echo $bookava ?></p>
-                    <p style="color:black"><u>Book Rent:</u> &nbsp&nbsp<?php echo $bookrent ?></p>
+                    <div class="bookdetails">
+                        <div class="book-img">
+                            <img width='200px' style='border:1px solid #333333; float:left;margin-left:20px' src="uploads/<?php echo $bookimg ?> " />
+                        </div>
 
+                        <div class="book-details">
+
+                            <p style="color:black"><u>Book Name:</u> &nbsp&nbsp<?php echo $bookname ?></p>
+                            <p style="color:black"><u>Book Detail:</u> &nbsp&nbsp<?php echo $bookdetail ?></p>
+                            <p style="color:black"><u>Book Authour:</u> &nbsp&nbsp<?php echo $bookauthour ?></p>
+                            <p style="color:black"><u>Book Publisher:</u> &nbsp&nbsp<?php echo $bookpub ?></p>
+                            <p style="color:black"><u>Book Branch:</u> &nbsp&nbsp<?php echo $branch ?></p>
+                            <p style="color:black"><u>Book Price:</u> &nbsp&nbsp<?php echo $bookprice ?></p>
+                            <p style="color:black"><u>Book Available:</u> &nbsp&nbsp<?php echo $bookava ?></p>
+                            <p style="color:black"><u>Book Rent:</u> &nbsp&nbsp<?php echo $bookrent ?></p>
+                        </div>
+                    </div>
 
                 </div>
             </div>

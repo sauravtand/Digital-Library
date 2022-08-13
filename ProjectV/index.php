@@ -50,6 +50,7 @@
 
 
     <div class="container login-container">
+        <div class="row"><img class="imglogo" src="images/logo.png" /></div>
         <div class="row">
             <h4><?php echo $msg ?></h4>
         </div>
@@ -60,11 +61,11 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="login_email" placeholder="Your Email *" value="" />
                     </div>
-                    <Label style="color:red">*<?php echo $emailmsg ?></label>
+                    <Label style="color:red"><?php echo $emailmsg ?></label>
                     <div class="form-group">
                         <input type="password" class="form-control" name="login_pasword" placeholder="Your Password *" value="" />
                     </div>
-                    <Label style="color:red">*<?php echo $pasdmsg ?></label>
+                    <Label style="color:red"><?php echo $pasdmsg ?></label>
                     <div class="form-group">
                         <input type="submit" class="btnSubmit" value="Login" />
                     </div>
@@ -76,17 +77,17 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="login_email" placeholder="Your Email *" value="" />
                     </div>
-                    <Label style="color:red">*<?php echo $ademailmsg ?></label>
+                    <Label style="color:red"><?php echo $ademailmsg ?></label>
                     <div class="form-group">
                         <input type="password" class="form-control" name="login_pasword" placeholder="Your Password *" value="" />
                     </div>
-                    <Label style="color:red">*<?php echo $adpasdmsg ?></label>
+                    <Label style="color:red"><?php echo $adpasdmsg ?></label>
                     <div class="form-group">
                         <input type="submit" class="btnSubmit" value="Login" />
                     </div>
                     <div class="form-group">
 
-                        <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
+                        <!-- <a href="#" class="ForgetPwd" value="Login">Forget Password?</a> -->
                     </div>
                 </form>
             </div>

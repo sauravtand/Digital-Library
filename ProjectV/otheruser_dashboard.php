@@ -37,13 +37,13 @@ $userloginid = $_SESSION["userid"] = $_GET['userlogid'];
     .container,
     .row,
     .imglogo {
-        margin: auto;
+        margin: 2% auto;
     }
 
     .innerdiv {
         text-align: center;
         /* width: 500px; */
-        margin: 100px;
+        margin: 2% auto;
     }
 
     input {
@@ -71,7 +71,7 @@ $userloginid = $_SESSION["userid"] = $_GET['userlogid'];
     }
 
     .greenbtn {
-        background-color: #ff0f39;
+        background-color: #024ca1;
         color: white;
         width: 95%;
         height: 40px;

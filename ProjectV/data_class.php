@@ -48,6 +48,7 @@ class data extends db
             header("Location:admin_service_dashboard.php?msg=Register Fail");
         }
     }
+    
     function userLogin($t1, $t2)
     {
         $q = "SELECT * FROM userdata where email='$t1' and pass='$t2'";

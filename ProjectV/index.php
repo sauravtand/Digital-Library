@@ -67,7 +67,7 @@
                     </div>
                     <Label style="color:red"><?php echo $pasdmsg ?></label>
                     <div class="form-group">
-                        <input type="submit" class="btnSubmit" value="Login" />
+                        <input type="submit" class="btnSubmit greenbtn" value="Login" />
                     </div>
                 </form>
             </div>
@@ -83,7 +83,7 @@
                     </div>
                     <Label style="color:red"><?php echo $adpasdmsg ?></label>
                     <div class="form-group">
-                        <input type="submit" class="btnSubmit" value="Login" />
+                        <input type="submit" class="btnSubmit greenbtn" value="Login" />
                     </div>
                     <div class="form-group">
 

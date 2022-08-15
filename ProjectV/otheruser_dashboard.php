@@ -1,19 +1,11 @@
 <?php
-
 session_start();
-
 $userloginid = $_SESSION["userid"] = $_GET['userlogid'];
-// echo $_SESSION["userid"];
-
-
 ?>
 
 
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+
 <html>
 
 <head>
@@ -25,83 +17,9 @@ $userloginid = $_SESSION["userid"] = $_GET['userlogid'];
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    .innerright,
-    label {
-        color: #333333;
-        font-weight: bold;
-    }
 
-    .container,
-    .row,
-    .imglogo {
-        margin: 2% auto;
-    }
-
-    .innerdiv {
-        text-align: center;
-        /* width: 500px; */
-        margin: 2% auto;
-    }
-
-    input {
-        margin-left: 20px;
-    }
-
-    .leftinnerdiv {
-        float: left;
-        width: 25%;
-    }
-
-    .rightinnerdiv {
-        float: right;
-        width: 75%;
-    }
-
-    .innerright {
-        background-color: #2222;
-        border-radius: 6px;
-    }
-
-    .imglogo {
-        width: 20%;
-        margin: 20px auto;
-    }
-
-    .greenbtn {
-        background-color: #024ca1;
-        color: white;
-        width: 95%;
-        height: 40px;
-        margin-top: 8px;
-        border: none;
-        border-radius: 6px;
-    }
-
-    .greenbtn,
-    a {
-        text-decoration: none;
-        color: white;
-        font-size: large;
-    }
-
-    th {
-        background-color: orange;
-        color: black;
-    }
-
-    td {
-        background-color: #fed8b1;
-        color: black;
-    }
-
-    td,
-    a {
-        color: black;
-    }
-</style>
 
 <body>
 

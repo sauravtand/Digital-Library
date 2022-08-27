@@ -11,6 +11,7 @@ $bookpub = $_POST['bookpub'];
 $branch = $_POST['branch'];
 $bookprice = $_POST['bookprice'];
 $bookquantity = $_POST['bookquantity'];
+// $bookava = $_POST['bookava'];
 
 
 
@@ -22,7 +23,7 @@ if (move_uploaded_file($_FILES["bookphoto"]["tmp_name"], "uploads/" . $_FILES["b
   $obj = new data();
   $obj->setconnection();
 
-  $obj->addbook($bookpic, $bookname, $bookdetail, $bookaudor, $bookpub, $branch, $bookprice, $bookquantity, 0, 0);
+  $obj->addbook($bookpic, $bookname, $bookdetail, $bookaudor, $bookpub, $branch, $bookprice, $bookquantity, $bookquantity, 0);
 } else {
   echo "File not uploaded";
 }

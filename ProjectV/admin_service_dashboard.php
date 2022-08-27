@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
 
 <head>
@@ -16,144 +12,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<!-- <style>
-    .innerright,
-    label {
-        color: #333333;
-        font-weight: bold;
-    }
 
-    .container,
-    .row {
-        margin: 10px auto;
-    }
-
-    .imglogo {
-        width: 20%;
-        margin: 20px auto;
-    }
-
-    .innerdiv {
-        text-align: center;
-        /* width: 500px; */
-        margin: 2% auto;
-    }
-
-    input {
-        margin-left: 20px;
-
-    }
-
-
-
-    .leftinnerdiv {
-        float: left;
-        width: 25%;
-    }
-
-    .rightinnerdiv {
-        float: right;
-        width: 75%;
-    }
-
-    .innerright {
-        background-color: #2222;
-    }
-
-    .greenbtn {
-        background-color: #024ca1;
-        color: white;
-        width: 95%;
-        height: 40px;
-        margin-top: 8px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-    }
-
-    .greenbtn,
-    a {
-        text-decoration: none;
-        color: white;
-        font-size: large;
-    }
-
-    th {
-        background-color: orange;
-        color: black;
-    }
-
-    td {
-        background-color: #fed8b1;
-        color: black;
-    }
-
-    td,
-    a {
-        color: black;
-    }
-
-    form {
-        padding: 10px;
-
-    }
-
-    .innerright {
-        border-radius: 6px;
-    }
-
-    input[type=text] {
-        width: 70%;
-
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        box-sizing: border-box;
-    }
-
-    input[type=number] {
-        width: 70%;
-
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        box-sizing: border-box;
-    }
-
-    input[type=password] {
-        width: 70%;
-
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        box-sizing: border-box;
-    }
-
-    input[type=email] {
-        width: 70%;
-
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        box-sizing: border-box;
-    }
-
-    .bookdetails {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-
-    }
-
-    .book-details {
-        text-align: left;
-        margin-bottom: 1rem;
-    }
-</style> -->
 
 <body>
 
@@ -319,16 +178,16 @@
                     $recordset = $u->issuereport();
 
                     $table = "<table style='font-family: Arial, Helvetica, sans-serif;border-collapse: collapse;width: 100%;'><tr><th style='  border: 1px solid #ddd;
-            padding: 8px;'>Issue Name</th><th>Book Name</th><th>Issue Date</th><th>Return Date</th><th>Fine</th></th><th>Issue Type</th></tr>";
+            padding: 8px;'>Issue Name</th><th>Book Name</th></th><th>Issue Days</th></tr>";
 
                     foreach ($recordset as $row) {
                         $table .= "<tr>";
                         "<td>$row[0]</td>";
                         $table .= "<td>$row[2]</td>";
                         $table .= "<td>$row[3]</td>";
-                        $table .= "<td>$row[6]</td>";
-                        $table .= "<td>$row[7]</td>";
-                        $table .= "<td>$row[8]</td>";
+                        // $table .= "<td>$row[6]</td>";
+                        // $table .= "<td>$row[7]</td>";
+                        // $table .= "<td>$row[8]</td>";
                         $table .= "<td>$row[4]</td>";
                         // $table.="<td><a href='otheruser_dashboard.php?returnid=$row[0]&userlogid=$userloginid'>Return</a></td>";
                         $table .= "</tr>";

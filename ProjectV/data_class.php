@@ -379,14 +379,14 @@ class data extends db
         }
     }
 
-    // issue book
-    function issuebook($book, $userselect, $days, $getdate, $returnDate)
+    // issue book 
+    function issuebook($book, $userselect, $days)
     {
         $this->$book = $book;
         $this->$userselect = $userselect;
         $this->$days = $days;
-        $this->$getdate = $getdate;
-        $this->$returnDate = $returnDate;
+        // $this->$getdate = $getdate;
+        // $this->$returnDate = $returnDate;
 
 
         $q = "SELECT * FROM book where bookname='$book'";
@@ -400,7 +400,7 @@ class data extends db
 
             foreach ($recordSet->fetchAll() as $row) {
                 $issueid = $row['id'];
-                $issuetype = $row['type'];
+                // $issuetype = $row['type'];
 
                 // header("location: admin_service_dashboard.php?logid=$logid");
             }
@@ -415,9 +415,7 @@ class data extends db
 
             $q = "UPDATE book SET bookava='$newbookava', bookrent='$newbookrent' where id='$bookid'";
             if ($this->connection->exec($q)) {
-
-                $q = "INSERT INTO issuebook (userid,issuename,issuebook,issuetype,issuedays,issuedate,issuereturn,fine)VALUES('$issueid','$userselect','$book','$issuetype','$days','$getdate','$returnDate','0')";
-
+                $q = "INSERT INTO issuebook (userid,issuename,issuedbook,issuedays)VALUES('$issueid','$userselect','$book','$days')";
                 if ($this->connection->exec($q)) {
                     header("Location:admin_service_dashboard.php?msg=done");
                 } else {

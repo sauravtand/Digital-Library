@@ -10,6 +10,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -38,6 +39,8 @@
     <div class="container">
         <div class="innerdiv">
             <div class="row"><img class="imglogo" src="images/logo.png" /></div>
+
+            <!-- Left Menu -->
             <div class="leftinnerdiv">
                 <Button class="greenbtn"> ADMIN</Button>
                 <Button class="greenbtn" onclick="openpart('addbook')">ADD BOOK</Button>
@@ -50,6 +53,7 @@
                 <a href="index.php"><Button class="greenbtn"> LOGOUT</Button></a>
             </div>
 
+            <!--Book Requests Approve  -->
             <div class="rightinnerdiv">
                 <div id="bookrequestapprove" class="innerright portion" style="display:none">
                     <Button class="greenbtn">BOOK REQUEST APPROVE</Button>
@@ -61,22 +65,19 @@
                     $recordset = $u->requestbookdata();
 
                     $table = "<table style='font-family: Arial, Helvetica, sans-serif;border-collapse: collapse;width: 100%;'><tr><th style='  border: 1px solid #ddd;
-            padding: 8px;'>Person Name</th><th>person type</th><th>Book name</th><th>Days </th><th>Approve</th></tr>";
+            padding: 8px;'>Requested By</th><th>Book Name</th><th>Approve</th><th>Delete</th></tr>";
                     foreach ($recordset as $row) {
                         $table .= "<tr>";
-                        "<td>$row[0]</td>";
-                        "<td>$row[1]</td>";
-                        "<td>$row[2]</td>";
+                        // "<td>$row[0]</td>";
+                        // "<td>$row[1]</td>";
+                        // "<td>$row[2]</td>";
 
+                        $table .= "<td>$row[1]</td>";
                         $table .= "<td>$row[3]</td>";
-                        $table .= "<td>$row[4]</td>";
-                        $table .= "<td>$row[5]</td>";
-                        $table .= "<td>$row[6]</td>";
-                        // $table.="<td><a href='approvebookrequest.php?reqid=$row[0]&book=$row[5]&userselect=$row[3]&days=$row[6]'><button type='button' class='btn btn-primary'>Approved BOOK</button></a></td>";
-                        $table .= "<td><a href='approvebookrequest.php?reqid=$row[0]&book=$row[5]&userselect=$row[3]&days=$row[6]'>Approved</a></td>";
-                        // $table.="<td><a href='deletebook_dashboard.php?deletebookid=$row[0]'>Delete</a></td>";
+
+                        $table .= "<td><a href='approvebookrequest.php?reqid=$row[0]&userselect=$row[2]&book=$row[3]&days=$row[4]'><button type='button' class='btn btn-primary fa fa-check'></button></a></td>";
+                        $table .= "<td><a href='deletebook_request.php?deletebookreqid=$row[0]'><button type='button' class='btn btn-danger fa fa-trash'></button></a></td>";
                         $table .= "</tr>";
-                        // $table.=$row[0];
                     }
                     $table .= "</table>";
 
@@ -86,6 +87,7 @@
                 </div>
             </div>
 
+            <!-- Add New Book  -->
             <div class="rightinnerdiv">
                 <div id="addbook" class="innerright portion" style="<?php if (!empty($_REQUEST['viewid'])) {
                                                                         echo "display:none";
@@ -116,6 +118,8 @@
             </div>
 
 
+            <!-- Add New Student -->
+
             <div class="rightinnerdiv">
                 <div id="addperson" class="innerright portion" style="display:none">
                     <Button class="greenbtn">ADD Person</Button>
@@ -137,6 +141,8 @@
                 </div>
             </div>
 
+
+            <!-- Student List -->
             <div class="rightinnerdiv">
                 <div id="studentrecord" class="innerright portion" style="display:none">
                     <Button class="greenbtn">Student RECORD</Button>
@@ -148,14 +154,14 @@
                     $recordset = $u->userdata();
 
                     $table = "<table style='font-family: Arial, Helvetica, sans-serif;border-collapse: collapse;width: 100%;'><tr><th style='  border: 1px solid #ddd;
-            padding: 8px;'> Name</th><th>Email</th><th>Type</th></tr>";
+            padding: 8px;'> Name</th><th>Email</th><th>Type</th><th>Delete</th></tr>";
                     foreach ($recordset as $row) {
                         $table .= "<tr>";
                         "<td>$row[0]</td>";
                         $table .= "<td>$row[1]</td>";
                         $table .= "<td>$row[2]</td>";
                         $table .= "<td>$row[4]</td>";
-                        // $table.="<td><a href='deleteuser.php?useriddelete=$row[0]'>Delete</a></td>";
+                        $table .= "<td><a href='deleteuser.php?useriddelete=$row[0]'><button class='btn btn-danger fa fa-trash'></button></a></td>";
                         $table .= "</tr>";
                         // $table.=$row[0];
                     }
@@ -167,6 +173,7 @@
                 </div>
             </div>
 
+            <!-- Issue Book Record -->
             <div class="rightinnerdiv">
                 <div id="issuebookreport" class="innerright portion" style="display:none">
                     <Button class="greenbtn">Issue Book Record</Button>
@@ -177,8 +184,8 @@
                     $u->issuereport();
                     $recordset = $u->issuereport();
 
-                    $table = "<table style='font-family: Arial, Helvetica, sans-serif;border-collapse: collapse;width: 100%;'><tr><th style='  border: 1px solid #ddd;
-            padding: 8px;'>Issue Name</th><th>Book Name</th></th><th>Issue Days</th></tr>";
+                    $table = "<table style='border-collapse: collapse;width: 100%;'><tr><th style='  border: 1px solid #ddd;
+            padding: 8px;'>Student Name</th><th>Book Name</th></th><th>Issue Date</th><th>Return Date</th><th>Delete</th></tr>";
 
                     foreach ($recordset as $row) {
                         $table .= "<tr>";
@@ -189,7 +196,8 @@
                         // $table .= "<td>$row[7]</td>";
                         // $table .= "<td>$row[8]</td>";
                         $table .= "<td>$row[4]</td>";
-                        // $table.="<td><a href='otheruser_dashboard.php?returnid=$row[0]&userlogid=$userloginid'>Return</a></td>";
+                        $table .= "<td>$row[5]</td>";
+                        $table .= "<td><a href='returnbookserver_page.php?returnbook=$row[0]'>Return</a></td>";
                         $table .= "</tr>";
                         // $table.=$row[0];
                     }
@@ -201,9 +209,7 @@
                 </div>
             </div>
 
-            <!--             
-
-issue book -->
+            <!-- Issue New Book -->
             <div class="rightinnerdiv">
                 <div id="issuebook" class="innerright portion" style="display:none">
                     <Button class="greenbtn">ISSUE BOOK</Button>
@@ -236,12 +242,15 @@ issue book -->
                             ?>
                         </select>
                         <br>
-                        Days<input type="number" name="days" />
+                        <label for="returndate">Return Date:</label>
+                        <input type="date" name="returndate">
 
                         <input type="submit" value="SUBMIT" />
                     </form>
                 </div>
             </div>
+
+            <!-- Book Detail Page -->
 
             <div class="rightinnerdiv">
                 <div id="bookdetail" class="innerright portion" style="<?php if (!empty($_REQUEST['viewid'])) {
@@ -295,6 +304,7 @@ issue book -->
             </div>
 
 
+            <!-- Book List Page -->
 
             <div class="rightinnerdiv">
                 <div id="bookreport" class="innerright portion" style="display:none">
@@ -305,18 +315,19 @@ issue book -->
                     $u->getbook();
                     $recordset = $u->getbook();
 
-                    $table = "<table style='font-family: Arial, Helvetica, sans-serif;border-collapse: collapse;width: 100%;'><tr><th style='  border: 1px solid #ddd;
-            padding: 8px;'>Book Name</th><th>Price</th><th>Qnt</th><th>Available</th><th>Rent</th></th><th>View</th></tr>";
+                    $table = "<table style='border-collapse: collapse;width: 100%;'><tr><th style='  border: 1px solid #ddd;
+            padding: 8px;'>Book Name</th><th>Price</th><th>Qnt</th><th>Available</th><th>Rent</th><th>View</th><th>Delete</th></tr>";
                     foreach ($recordset as $row) {
                         $table .= "<tr>";
-                        "<td>$row[0]</td>";
+
                         $table .= "<td>$row[2]</td>";
                         $table .= "<td>$row[7]</td>";
                         $table .= "<td>$row[8]</td>";
                         $table .= "<td>$row[9]</td>";
                         $table .= "<td>$row[10]</td>";
-                        $table .= "<td><a href='admin_service_dashboard.php?viewid=$row[0]'><button type='button' class='btn btn-primary'>View BOOK</button></a></td>";
-                        // $table.="<td><a href='deletebook_dashboard.php?deletebookid=$row[0]'>Delete</a></td>";
+                        $table .= "<td><a href='admin_service_dashboard.php?viewid=$row[0]'><button type='button' class='btn btn-primary'><i class='fa fa-eye'></i></button></a></td>";
+                        // $table .= "<td><a href='deletebook_dashboard.php?deletebookid=$row[0]'><button type='button' class='btn btn-primary'><i class='fa fa-pencil'></i></button></a></td>";
+                        $table .= "<td><a href='deletebook_dashboard.php?deletebookid=$row[0]'><button type='button' class='btn btn-danger'><i class='fa fa-trash'></i></button></a></td>";
                         $table .= "</tr>";
                         // $table.=$row[0];
                     }
@@ -336,6 +347,9 @@ issue book -->
 
 
     <script>
+        // Bootstrap Date Picker Call
+        $('.datepicker').datepicker();
+
         function openpart(portion) {
             var i;
             var x = document.getElementsByClassName("portion");

@@ -8,10 +8,10 @@ include("data_class.php");
 $request = $_GET['reqid'];
 $book = $_GET['book'];
 $userselect = $_GET['userselect'];
-$getdate = date("d/m/Y");
+$getdate = date('Y-m-d');
 $days = $_GET['days'];
 
-$returnDate = Date('d/m/Y', strtotime('+' . $days . 'days'));
+$returnDate = Date('Y-m-d', strtotime('+' . $days . 'days'));
 
 $obj = new data();
 $obj->setconnection();

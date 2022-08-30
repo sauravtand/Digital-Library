@@ -65,14 +65,12 @@ class data extends db
         }
     }
 
+
     function adminLogin($t1, $t2)
     {
 
         $q = "SELECT * FROM admin where email='$t1' and pass='$t2'";
-        // var_dump("$q");
         $recordSet = $this->connection->query($q);
-        // var_dump($recordSet);
-        // exit;
         $result = $recordSet->rowCount();
 
 
@@ -103,21 +101,9 @@ class data extends db
         $this->bookrent = $bookrent;
 
         $newDa = "$bookpub";
-        // var_dump($newDa);
-        // exit;
+
         $q = 'INSERT INTO book (bookpic,bookname, bookdetail, bookaudor, bookpub, branch, bookprice,bookquantity,bookava,bookrent)VALUES("' . $bookpic . '", "' . $bookname . '", "' . $bookdetail . '", "' . $bookaudor . '", "' . $newDa . '", "' . $branch . '", ' . $bookprice . ', ' . $bookquantity . ',' . $bookava . ',"' . $bookrent . '")';
-        // $q = "INSERT INTO book VALUES($bookpic, $bookname, $bookdetail, $bookaudor, $bookpub, $branch, $bookprice, $bookquantity,$bookava,$bookrent)";
 
-        // var_dump($q);
-        // exit;
-
-        // try {
-        //     $c = $this->connection->exec($q);
-        //     var_dump($c, 'asdf');
-        // } catch (Exception $e) {
-        //     var_dump('asdf');
-        // }
-        // exit;
         if ($this->connection->exec($q)) {
             header("Location:admin_service_dashboard.php?msg=done");
         } else {
@@ -132,42 +118,9 @@ class data extends db
 
     function getissuebook($userloginid)
     {
-
-        $newfine = "";
-        $issuereturn = "";
-
         $q = "SELECT * FROM issuebook where userid='$userloginid'";
-        $recordSetss = $this->connection->query($q);
-
-
-        foreach ($recordSetss->fetchAll() as $row) {
-            $issuereturn = $row['issuereturn'];
-            $fine = $row['fine'];
-            $newfine = $fine;
-
-
-            //  $newbookrent=$row['bookrent']+1;
-        }
-
-
-        $getdate = date("d/m/Y");
-        if ($issuereturn < $getdate) {
-            $q = "UPDATE issuebook SET fine='$newfine' where userid='$userloginid'";
-
-            if ($this->connection->exec($q)) {
-                $q = "SELECT * FROM issuebook where userid='$userloginid' ";
-                $data = $this->connection->query($q);
-                return $data;
-            } else {
-                $q = "SELECT * FROM issuebook where userid='$userloginid' ";
-                $data = $this->connection->query($q);
-                return $data;
-            }
-        } else {
-            $q = "SELECT * FROM issuebook where userid='$userloginid'";
-            $data = $this->connection->query($q);
-            return $data;
-        }
+        $data = $this->connection->query($q);
+        return $data;
     }
 
     function getbook()
@@ -228,8 +181,8 @@ class data extends db
         if ($usertype == "student") {
             $days = 7;
         }
-        if ($usertype == "teacher") {
-            $days = 21;
+        if ($usertype == "teacher" && $usertype == "admin") {
+            $days = 14;
         }
 
 
@@ -245,8 +198,8 @@ class data extends db
 
     function returnbook($id)
     {
-        $fine = "";
-        $bookava = "";
+        // $fine = "";
+        $bookaval = "";
         $issuebook = "";
         $bookrentel = "";
 
@@ -255,43 +208,35 @@ class data extends db
 
         foreach ($recordSet->fetchAll() as $row) {
             $userid = $row['userid'];
-            $issuebook = $row['issuebook'];
-            $fine = $row['fine'];
+            $issuebook = $row['issuedbook'];
+            // $fine = $row['fine'];
         }
-        if ($fine == 0) {
 
-            $q = "SELECT * FROM book where bookname='$issuebook'";
-            $recordSet = $this->connection->query($q);
 
-            foreach ($recordSet->fetchAll() as $row) {
-                $bookava = $row['bookava'] + 1;
-                $bookrentel = $row['bookrent'] - 1;
-            }
-            $q = "UPDATE book SET bookava='$bookava', bookrent='$bookrentel' where bookname='$issuebook'";
-            $this->connection->exec($q);
+        $q = "SELECT * FROM book where bookname='$issuebook'";
+        $recordSet = $this->connection->query($q);
 
-            $q = "DELETE from issuebook where id=$id and issuebook='$issuebook' and fine='0' ";
-            if ($this->connection->exec($q)) {
-
-                header("Location:otheruser_dashboard.php?userlogid=$userid");
-            }
-            //  else{
-            //     header("Location:otheruser_dashboard.php?msg=fail");
-            //  }
+        foreach ($recordSet->fetchAll() as $row) {
+            $bookaval = $row['bookava'] + 1;
+            $bookrentel = $row['bookrent'] - 1;
         }
-        // if($fine!=0){
-        //     header("Location:otheruser_dashboard.php?userlogid=$userid&msg=fine");
+        $q = "UPDATE book SET bookrent='$bookrentel' where bookname='$issuebook'";
+        $this->connection->exec($q);
+
+        $q = "DELETE from issuebook where id=$id and issuedbook='$issuebook'";
+        // if ($this->connection->exec($q)) {
+
+        //     header("Location:admin_service_dashboard.php");
+        //     header("Location:admin_service_dashboard.php?msg=done");
+        // } else {
+        //     header("Location:admin_service_dashboard.php?msg=fail");
         // }
-
-
     }
 
     function delteuserdata($id)
     {
         $q = "DELETE from userdata where id='$id'";
         if ($this->connection->exec($q)) {
-
-
             header("Location:admin_service_dashboard.php?msg=done");
         } else {
             header("Location:admin_service_dashboard.php?msg=fail");
@@ -302,8 +247,18 @@ class data extends db
     {
         $q = "DELETE from book where id='$id'";
         if ($this->connection->exec($q)) {
+            header("Location:admin_service_dashboard.php?msg=done");
+        } else {
+            header("Location:admin_service_dashboard.php?msg=fail");
+        }
+    }
 
 
+    function deletebookrequest($id)
+    {
+        $q = "DELETE from requestbook where id='$id'";
+
+        if ($this->connection->exec($q)) {
             header("Location:admin_service_dashboard.php?msg=done");
         } else {
             header("Location:admin_service_dashboard.php?msg=fail");
@@ -361,7 +316,7 @@ class data extends db
             $q = "UPDATE book SET bookava='$newbookava', bookrent='$newbookrent' where id='$bookid'";
             if ($this->connection->exec($q)) {
 
-                $q = "INSERT INTO issuebook (userid,issuename,issuebook,issuetype,issuedays,issuedate,issuereturn,fine)VALUES('$issueid','$userselect','$book','$issuetype','$days','$getdate','$returnDate','0')";
+                $q = "INSERT INTO issuebook (userid,issuename,issuedbook,returndate)VALUES('$issueid','$userselect','$book','$returnDate')";
 
                 if ($this->connection->exec($q)) {
 
@@ -380,11 +335,11 @@ class data extends db
     }
 
     // issue book 
-    function issuebook($book, $userselect, $days)
+    function issuebook($book, $userselect, $returnDate)
     {
         $this->$book = $book;
         $this->$userselect = $userselect;
-        $this->$days = $days;
+        // $this->$days = $days;
         // $this->$getdate = $getdate;
         // $this->$returnDate = $returnDate;
 
@@ -415,7 +370,7 @@ class data extends db
 
             $q = "UPDATE book SET bookava='$newbookava', bookrent='$newbookrent' where id='$bookid'";
             if ($this->connection->exec($q)) {
-                $q = "INSERT INTO issuebook (userid,issuename,issuedbook,issuedays)VALUES('$issueid','$userselect','$book','$days')";
+                $q = "INSERT INTO issuebook (userid,issuename,issuedbook,returndate)VALUES('$issueid','$userselect','$book','$returnDate')";
                 if ($this->connection->exec($q)) {
                     header("Location:admin_service_dashboard.php?msg=done");
                 } else {

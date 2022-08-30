@@ -42,6 +42,13 @@
   width: 100%;
 }
 
+.login-form-1 input[type="email"] {
+  width: 100%;
+}
+.login-form-2 input[type="email"] {
+  width: 100%;
+}
+
 .login-form-2 h3 {
   text-align: center;
   color: #fff;

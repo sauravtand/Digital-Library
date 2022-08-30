@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-
 <html>
 
 <head>
@@ -11,7 +9,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/favicon.ico">
 </head>
 
 <body>
@@ -59,7 +57,7 @@
                 <h3>Student Login</h3>
                 <form action="login_server_page.php" method="get">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="login_email" placeholder="Your Email *" value="" />
+                        <input type="email" class="form-control" name="login_email" placeholder="Your Email *" value="" />
                     </div>
                     <Label style="color:red"><?php echo $emailmsg ?></label>
                     <div class="form-group">
@@ -71,11 +69,12 @@
                     </div>
                 </form>
             </div>
+
             <div class="col-md-6 login-form-2">
-                <h3>Admin Login</h3>
+                <h3>Librarian Login</h3>
                 <form action="loginadmin_server_page.php" method="get">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="login_email" placeholder="Your Email *" value="" />
+                        <input type="email" class="form-control" name="login_email" placeholder="Your Email *" value="" />
                     </div>
                     <Label style="color:red"><?php echo $ademailmsg ?></label>
                     <div class="form-group">
@@ -85,22 +84,11 @@
                     <div class="form-group">
                         <input type="submit" class="btnSubmit greenbtn" value="Login" />
                     </div>
-                    <div class="form-group">
 
-                        <!-- <a href="#" class="ForgetPwd" value="Login">Forget Password?</a> -->
-                    </div>
                 </form>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-    <script src="" async defer></script>
 </body>
 
 </html>

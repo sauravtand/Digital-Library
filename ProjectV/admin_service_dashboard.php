@@ -75,7 +75,7 @@
                         $table .= "<td>$row[1]</td>";
                         $table .= "<td>$row[3]</td>";
 
-                        $table .= "<td><a href='approvebookrequest.php?reqid=$row[0]&userselect=$row[2]&book=$row[3]&days=$row[4]'><button type='button' class='btn btn-primary fa fa-check'></button></a></td>";
+                        $table .= "<td><a href='approvebookrequest.php?reqid=$row[0]&userselect=$row[1]&book=$row[3]&days=$row[4]'><button type='button' class='btn btn-primary fa fa-check'></button></a></td>";
                         $table .= "<td><a href='deletebook_request.php?deletebookreqid=$row[0]'><button type='button' class='btn btn-danger fa fa-trash'></button></a></td>";
                         $table .= "</tr>";
                     }
@@ -185,7 +185,7 @@
                     $recordset = $u->issuereport();
 
                     $table = "<table style='border-collapse: collapse;width: 100%;'><tr><th style='  border: 1px solid #ddd;
-            padding: 8px;'>Student Name</th><th>Book Name</th></th><th>Issue Date</th><th>Return Date</th><th>Delete</th></tr>";
+            padding: 8px;'>Student Name</th><th>Book Name</th></th><th>Issue Date</th><th>Return Date</th><th>Return</th></tr>";
 
                     foreach ($recordset as $row) {
                         $table .= "<tr>";
@@ -197,7 +197,7 @@
                         // $table .= "<td>$row[8]</td>";
                         $table .= "<td>$row[4]</td>";
                         $table .= "<td>$row[5]</td>";
-                        $table .= "<td><a href='returnbookserver_page.php?returnbook=$row[0]'>Return</a></td>";
+                        $table .= "<td><a href='returnbookserver_page.php?returnbook=$row[0]'><button class='btn btn-primary fa fa-undo'></button></a></td>";
                         $table .= "</tr>";
                         // $table.=$row[0];
                     }

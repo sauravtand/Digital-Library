@@ -181,7 +181,7 @@ class data extends db
         if ($usertype == "student") {
             $days = 7;
         }
-        if ($usertype == "teacher" && $usertype == "admin") {
+        if ($usertype == "teacher" || $usertype == "admin") {
             $days = 14;
         }
 
@@ -224,13 +224,13 @@ class data extends db
         $this->connection->exec($q);
 
         $q = "DELETE from issuebook where id=$id and issuedbook='$issuebook'";
-        // if ($this->connection->exec($q)) {
+        if ($this->connection->exec($q)) {
 
-        //     header("Location:admin_service_dashboard.php");
-        //     header("Location:admin_service_dashboard.php?msg=done");
-        // } else {
-        //     header("Location:admin_service_dashboard.php?msg=fail");
-        // }
+
+            header("Location:admin_service_dashboard.php?msg=done");
+        } else {
+            header("Location:admin_service_dashboard.php?msg=fail");
+        }
     }
 
     function delteuserdata($id)
@@ -280,19 +280,20 @@ class data extends db
     }
 
     // issue issuebookapprove
-    function issuebookapprove($book, $userselect, $days, $getdate, $returnDate, $redid)
+    function issuebookapprove($book, $user, $returnDate, $redid)
     {
-        $this->$book = $book;
-        $this->$userselect = $userselect;
-        $this->$days = $days;
-        $this->$getdate = $getdate;
-        $this->$returnDate = $returnDate;
+        // $this->$book = $book;
+        // $this->$user = $user;
+        // $this->$days = $days;
+        // $this->$getdate = $getdate;
+        // $this->$returnDate = $returnDate;
+        // $this->$redid = $redid;
 
 
         $q = "SELECT * FROM book where bookname='$book'";
         $recordSetss = $this->connection->query($q);
 
-        $q = "SELECT * FROM userdata where name='$userselect'";
+        $q = "SELECT * FROM userdata where name='$user'";
         $recordSet = $this->connection->query($q);
         $result = $recordSet->rowCount();
 
@@ -316,7 +317,7 @@ class data extends db
             $q = "UPDATE book SET bookava='$newbookava', bookrent='$newbookrent' where id='$bookid'";
             if ($this->connection->exec($q)) {
 
-                $q = "INSERT INTO issuebook (userid,issuename,issuedbook,returndate)VALUES('$issueid','$userselect','$book','$returnDate')";
+                $q = "INSERT INTO issuebook (userid,issuename,issuedbook,returndate)VALUES('$issueid','$user','$book','$returnDate')";
 
                 if ($this->connection->exec($q)) {
 

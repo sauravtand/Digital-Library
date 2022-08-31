@@ -114,24 +114,7 @@
              </div>
 
 
-             <div class="rightinnerdiv">
-                 <div id="return" class="innerright portion" style="<?php if (!empty($_REQUEST['returnid'])) {
-                                                                        $returnid = $_REQUEST['returnid'];
-                                                                    } else {
-                                                                        echo "display:none";
-                                                                    } ?>">
-                     <Button class="greenbtn">Return Book</Button>
 
-                     <?php
-
-                        $u = new data;
-                        $u->setconnection();
-                        $u->returnbook($returnid);
-                        $recordset = $u->returnbook($returnid);
-                        ?>
-
-                 </div>
-             </div>
 
 
              <div class="rightinnerdiv">

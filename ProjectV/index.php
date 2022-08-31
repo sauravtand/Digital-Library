@@ -52,7 +52,7 @@
         <div class="row">
             <h4><?php echo $msg ?></h4>
         </div>
-        <div class="row">
+        <div class="row login-flex">
             <div class="col-md-6 login-form-1">
                 <h3>Student Login</h3>
                 <form action="login_server_page.php" method="get">

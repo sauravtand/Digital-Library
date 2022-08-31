@@ -18,6 +18,7 @@
      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      <link rel="stylesheet" href="style.css">
+     <link rel="shortcut icon" href="./images/favicon.ico">
  </head>
 
 
@@ -33,7 +34,7 @@
                  <Button class="greenbtn">Welcome</Button>
                  <Button class="greenbtn" onclick="openpart('myaccount')"> My Account</Button>
                  <Button class="greenbtn" onclick="openpart('requestbook')"> Request Book</Button>
-                 <Button class="greenbtn" onclick="openpart('issuereport')"> Book Report</Button>
+                 <Button class="greenbtn" onclick="openpart('issuereport')"> Issue Record</Button>
                  <a href="index.php"><Button class="greenbtn"> LOGOUT</Button></a>
              </div>
 
@@ -44,7 +45,7 @@
                                                                         } else {
                                                                             echo "";
                                                                         } ?>">
-                     <Button class="greenbtn">My Account</Button>
+                     <h3 class="section-head">My Account</h3>
 
                      <?php
 
@@ -80,8 +81,7 @@
                                                                             } else {
                                                                                 echo "display:none";
                                                                             } ?>">
-                     <Button class="greenbtn">ISSUE RECORD</Button>
-
+                     <h3 class="section-head">Issue Record</h3>
                      <?php
 
                         $userloginid = $_SESSION["userid"] = $_GET['userlogid'];
@@ -124,7 +124,7 @@
                                                                             } else {
                                                                                 echo "display:none";
                                                                             } ?>">
-                     <Button class="greenbtn">Request Book</Button>
+                     <h3 class="section-head">Request Book</h3>
 
                      <?php
                         $u = new data;

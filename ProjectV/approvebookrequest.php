@@ -1,10 +1,6 @@
 <?php
 
 include("data_class.php");
-
-
-
-
 $request = $_GET['reqid'];
 $book = $_GET['book'];
 $user = $_GET['userselect'];

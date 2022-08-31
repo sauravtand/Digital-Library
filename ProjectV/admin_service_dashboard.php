@@ -12,6 +12,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./images/favicon.ico">
 </head>
 
 
@@ -40,6 +41,7 @@
         <div class="innerdiv">
             <div class="row"><img class="imglogo" src="images/logo.png" /></div>
 
+
             <!-- Left Menu -->
             <div class="leftinnerdiv">
                 <Button class="greenbtn"> ADMIN</Button>
@@ -51,12 +53,13 @@
                 <Button class="greenbtn" onclick="openpart('issuebook')"> ISSUE BOOK</Button>
                 <Button class="greenbtn" onclick="openpart('issuebookreport')"> ISSUE REPORT</Button>
                 <a href="index.php"><Button class="greenbtn"> LOGOUT</Button></a>
+
             </div>
 
             <!--Book Requests Approve  -->
             <div class="rightinnerdiv">
                 <div id="bookrequestapprove" class="innerright portion" style="display:none">
-                    <Button class="greenbtn">BOOK REQUEST APPROVE</Button>
+                    <h3 class="section-head">Book Request List</h3>
 
                     <?php
                     $u = new data;
@@ -94,7 +97,7 @@
                                                                     } else {
                                                                         echo "";
                                                                     } ?>">
-                    <Button class="greenbtn">ADD NEW BOOK</Button>
+                    <h3 class="section-head">Add New Book</h3>
                     <form action="addbookserver_page.php" method="post" enctype="multipart/form-data">
                         <label>Book Name:</label>
                         <input type="text" name="bookname" />
@@ -122,7 +125,7 @@
 
             <div class="rightinnerdiv">
                 <div id="addperson" class="innerright portion" style="display:none">
-                    <Button class="greenbtn">ADD Person</Button>
+                    <h3 class="section-head">Add Person</h3>
                     <form action="addpersonserver_page.php" method="post" enctype="multipart/form-data">
                         <label>Name:</label><input type="text" name="addname" />
                         </br>
@@ -145,7 +148,8 @@
             <!-- Student List -->
             <div class="rightinnerdiv">
                 <div id="studentrecord" class="innerright portion" style="display:none">
-                    <Button class="greenbtn">Student RECORD</Button>
+
+                    <h3 class="section-head">Student Record</h3>
 
                     <?php
                     $u = new data;
@@ -153,7 +157,7 @@
                     $u->userdata();
                     $recordset = $u->userdata();
 
-                    $table = "<table style='font-family: Arial, Helvetica, sans-serif;border-collapse: collapse;width: 100%;'><tr><th style='  border: 1px solid #ddd;
+                    $table = "<table style=' border-collapse: collapse; width:100%;'><tr><th style='border: 1px solid #ddd;
             padding: 8px;'> Name</th><th>Email</th><th>Type</th><th>Delete</th></tr>";
                     foreach ($recordset as $row) {
                         $table .= "<tr>";
@@ -176,7 +180,7 @@
             <!-- Issue Book Record -->
             <div class="rightinnerdiv">
                 <div id="issuebookreport" class="innerright portion" style="display:none">
-                    <Button class="greenbtn">Issue Book Record</Button>
+                    <h3 class="section-head">Issue Book Record</h3>
 
                     <?php
                     $u = new data;
@@ -212,7 +216,7 @@
             <!-- Issue New Book -->
             <div class="rightinnerdiv">
                 <div id="issuebook" class="innerright portion" style="display:none">
-                    <Button class="greenbtn">ISSUE BOOK</Button>
+                    <h3 class="section-head">Issue Book</h3>
                     <form action="issuebook_server.php" method="post" enctype="multipart/form-data">
                         <label for="book">Choose Book:</label>
                         <select name="book">
@@ -228,7 +232,7 @@
                             ?>
                         </select>
 
-                        <label for="Select Student">:</label>
+                        <label for="Select Student">Select Student:</label>
                         <select name="userselect">
                             <?php
                             $u = new data;
@@ -244,8 +248,8 @@
                         <br>
                         <label for="returndate">Return Date:</label>
                         <input type="date" name="returndate">
-
-                        <input type="submit" value="SUBMIT" />
+                        <br>
+                        <input type="submit" value="SUBMIT" class="btn btn-primary greenbtn" />
                     </form>
                 </div>
             </div>
@@ -259,7 +263,7 @@
                                                                             echo "display:none";
                                                                         } ?>">
 
-                    <Button class="greenbtn">BOOK DETAIL</Button>
+                    <h3 class="section-head">Book Detail</h3>
                     </br>
                     <?php
                     $u = new data;
@@ -308,13 +312,12 @@
 
             <div class="rightinnerdiv">
                 <div id="bookreport" class="innerright portion" style="display:none">
-                    <Button class="greenbtn">BOOK RECORD</Button>
+                    <h3 class="section-head">Book Record</h3>
                     <?php
                     $u = new data;
                     $u->setconnection();
                     $u->getbook();
                     $recordset = $u->getbook();
-
                     $table = "<table style='border-collapse: collapse;width: 100%;'><tr><th style='  border: 1px solid #ddd;
             padding: 8px;'>Book Name</th><th>Price</th><th>Qnt</th><th>Available</th><th>Rent</th><th>View</th><th>Delete</th></tr>";
                     foreach ($recordset as $row) {
@@ -326,10 +329,8 @@
                         $table .= "<td>$row[9]</td>";
                         $table .= "<td>$row[10]</td>";
                         $table .= "<td><a href='admin_service_dashboard.php?viewid=$row[0]'><button type='button' class='btn btn-primary'><i class='fa fa-eye'></i></button></a></td>";
-                        // $table .= "<td><a href='deletebook_dashboard.php?deletebookid=$row[0]'><button type='button' class='btn btn-primary'><i class='fa fa-pencil'></i></button></a></td>";
                         $table .= "<td><a href='deletebook_dashboard.php?deletebookid=$row[0]'><button type='button' class='btn btn-danger'><i class='fa fa-trash'></i></button></a></td>";
                         $table .= "</tr>";
-                        // $table.=$row[0];
                     }
                     $table .= "</table>";
 

@@ -49,6 +49,19 @@
   width: 100%;
 }
 
+select {
+  padding: 5px;
+  width: 30%;
+  border-radius: 6px;
+  margin: 10px auto;
+}
+
+input[type="date"] {
+  padding: 5px;
+  width: 30%;
+  border-radius: 6px;
+  margin: 10px auto;
+}
 .login-form-2 h3 {
   text-align: center;
   color: #fff;
@@ -219,4 +232,21 @@ input[type="email"] {
 .book-details {
   text-align: left;
   margin-bottom: 1rem;
+}
+
+.section-head {
+  background-color: #024ca1;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px 6px 0 0;
+  margin: 0;
+}
+
+/* responsive */
+@media screen and (max-width: 846px) {
+  .leftinnerdiv,
+  .rightinnerdiv {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }

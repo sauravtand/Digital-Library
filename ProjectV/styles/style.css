@@ -1,0 +1,252 @@
+/* index design */
+
+.container,
+.row,
+.h2 {
+  text-align: center;
+}
+
+.login-container {
+  margin: 2% auto;
+}
+
+.login-form-1 {
+  padding: 5%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 6px 0 0 6px;
+}
+
+.login-form-1 h3 {
+  text-align: center;
+  color: #333;
+}
+
+.login-form-2 {
+  padding: 5%;
+  background: #024ca1;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0 6px 6px 0;
+}
+
+.login-form-2 input[type="text"] {
+  width: 100%;
+}
+.login-form-2 input[type="password"] {
+  width: 100%;
+}
+
+.login-form-1 input[type="text"] {
+  width: 100%;
+}
+.login-form-1 input[type="password"] {
+  width: 100%;
+}
+
+.login-form-1 input[type="email"] {
+  width: 100%;
+}
+.login-form-2 input[type="email"] {
+  width: 100%;
+}
+
+select {
+  padding: 5px;
+  width: 30%;
+  border-radius: 6px;
+  margin: 10px auto;
+}
+
+input[type="date"] {
+  padding: 5px;
+  width: 30%;
+  border-radius: 6px;
+  margin: 10px auto;
+}
+.login-form-2 h3 {
+  text-align: center;
+  color: #fff;
+}
+
+.login-container form {
+  padding: 10%;
+}
+
+.btnSubmit {
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+}
+
+.login-form-1 .btnSubmit {
+  font-weight: 600;
+  color: #fff;
+  background-color: #024ca1;
+}
+
+.login-form-2 .btnSubmit {
+  font-weight: 600;
+  color: #024ca1;
+  background-color: #fff;
+}
+
+.login-form-2 .ForgetPwd {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-form-1 .ForgetPwd {
+  color: #024ca1;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.imglogo {
+  width: 20%;
+  margin: 20px auto;
+}
+
+/* Dashboard Design */
+.innerright,
+label {
+  color: #333333;
+  font-weight: bold;
+}
+
+.container,
+.row,
+.imglogo {
+  margin: 2% auto;
+}
+
+.innerdiv {
+  text-align: center;
+  /* width: 500px; */
+  margin: 2% auto;
+}
+
+input {
+  margin-left: 20px;
+}
+
+.leftinnerdiv {
+  float: left;
+  width: 25%;
+}
+
+.rightinnerdiv {
+  float: right;
+  width: 75%;
+}
+
+.innerright {
+  background-color: #2222;
+  border-radius: 6px;
+}
+
+.imglogo {
+  width: 20%;
+  margin: 20px auto;
+}
+
+.greenbtn {
+  background-color: #024ca1;
+  color: white;
+  width: 95%;
+  height: 40px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 6px;
+}
+
+.greenbtn,
+a {
+  text-decoration: none;
+  color: white;
+  font-size: large;
+}
+
+th {
+  background-color: orange;
+  color: black;
+}
+
+td {
+  background-color: #fed8b1;
+  color: black;
+}
+
+td,
+a {
+  color: black;
+}
+
+/* Admin Panel */
+input[type="text"] {
+  width: 70%;
+
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+input[type="number"] {
+  width: 70%;
+
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+input[type="password"] {
+  width: 70%;
+
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+input[type="email"] {
+  width: 70%;
+
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.bookdetails {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.book-details {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.section-head {
+  background-color: #024ca1;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px 6px 0 0;
+  margin: 0;
+}
+
+/* responsive */
+@media screen and (max-width: 846px) {
+  .leftinnerdiv,
+  .rightinnerdiv {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
